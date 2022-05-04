@@ -36,7 +36,7 @@ public class MyRecursiveAction extends RecursiveAction {
 
     private List<MyRecursiveAction> createSubtasks() {
         List<MyRecursiveAction> subtasks = new ArrayList<>();
-        for(ComplicatedObject obj:complicatedObjects){
+        for(ComplicatedObject obj:complicatedObjects){//we can, for example, encapsulate the parallelisable action
                 subtasks.add(new MyRecursiveAction(new ComplicatedObject[]{obj}));
 
         }
