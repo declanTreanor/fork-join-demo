@@ -13,7 +13,7 @@ public class MyRecursiveTask extends RecursiveTask<Integer> {
 
 	private int[] arr;
 
-	private static final int THRESHOLD = 4;
+	private static final int THRESHOLD = 3;
 
 	public MyRecursiveTask(int[] arr) {
 		this.arr = arr;
@@ -26,6 +26,8 @@ public class MyRecursiveTask extends RecursiveTask<Integer> {
 					.stream()
 					.mapToInt(ForkJoinTask::join)
 					.sum();
+
+
 		} else {
 			return processing(arr);
 		}
@@ -44,7 +46,9 @@ public class MyRecursiveTask extends RecursiveTask<Integer> {
 		int sum = 0;
 		for (int i : arr)
 			sum += i;
-		Thread.sleep(2000);
+
+		Thread.sleep(2000);//we won't find this. For us,
+								// it will all be done in parallel
 		System.out.println("This  was processed by "
 				+ Thread.currentThread().getName()+ ". sum: "+sum);
 		return sum;

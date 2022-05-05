@@ -9,7 +9,7 @@ class MyRecursiveTaskTest {
     @Test
     public void compute_withSleep() {
 
-        int[] ints = new int[]{1,2,3,4,5,6,7,8,9,10,10000000,2,3,4,5,6,7,8,9,10,};
+        int[] ints = new int[]{1,10,100,1000,10000,100000,1000000,10000000,100000000,1000000000};
 
         MyRecursiveTask customRecursiveTask = new MyRecursiveTask(ints);
         int result = new ForkJoinPool().invoke(customRecursiveTask);

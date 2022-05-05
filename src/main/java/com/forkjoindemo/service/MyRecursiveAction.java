@@ -17,13 +17,6 @@ public class MyRecursiveAction extends RecursiveAction {
         this.complicatedObjects = complicatedObjects;
     }
 
-    public void adddComplicatedObject(ComplicatedObject obj){
-        if(complicatedObjects != null){
-            complicatedObjects[complicatedObjects.length-1] = obj;
-
-        } else throw new RuntimeException("booom!");
-    }
-
     @SneakyThrows
     @Override
     protected void compute() {
@@ -45,7 +38,7 @@ public class MyRecursiveAction extends RecursiveAction {
     }
 
     private void processing(ComplicatedObject obj) throws InterruptedException {
-       // Thread.sleep(1000);
+        Thread.sleep(1000);
         System.out.println("This result - (" + obj.work() + ") - was processed by "
                 + Thread.currentThread().getName());
         System.out.println(""+LocalDateTime.now());
